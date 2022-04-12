@@ -7,6 +7,7 @@ use App\Http\Controllers\StudentController;
 
 
 Route::get("/",[HomeController::class,"index"])->name("homepage");
+
 Route::get("/contact",[HomeController::class,"contact"])->name("contact");
 Route::match(["post","get"],"/apply",[HomeController::class,"apply"])->name("apply");
 Route::get("/courses",[HomeController::class,"courses"])->name("courses");
