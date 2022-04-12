@@ -75,6 +75,17 @@ class AdminController extends Controller
         }
     }
 
+    public function makeCashPayment( $std_id,$id){
+        $std = Student::find($std_id);
+
+        if($std){
+            $payment = Payment::where([["student_id",$std->id],["id",$id]])->first();
+            $payment->status = "paid";
+            $payment->save();
+        }
+        return redirect()->route("admin.dashboard");
+    }
+
     public function approveStudent($id){
         $std = Student::find($id);
         $std->status = "1";

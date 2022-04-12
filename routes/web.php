@@ -16,6 +16,7 @@ Route::get("/online-payment",[HomeController::class,"onlinePayment"])->name("onl
 Route::prefix("admin")->middleware(['auth'])->group(function(){
     Route::get("/",[AdminController::class,"dashboard"])->name('admin.dashboard');
     Route::get("/approve-student/{id}",[AdminController::class,"approveStudent"])->name('admin.approve.student');
+    Route::get("/make-cash-payment/{std_id}/{id}",[AdminController::class,"makeCashPayment"])->name('admin.make.cashpayment');
     Route::get("/passout-student/{id}",[AdminController::class,"passoutStudent"])->name('admin.passout.student');
     Route::get("/manage/student/active",[StudentController::class,"index"])->name('admin.manage.student.active');
     Route::get("/manage/student/new",[StudentController::class,"newAdmission"])->name('admin.manage.student.new');

@@ -36,15 +36,19 @@
                     <th>Amount</th>
                     <th>Due date</th>
                     <th>Status</th>
+                    <th>Action</th>
                 </tr>
 
                 @foreach ($due_payment as  $due)
                     <tr>
                         <td>{{ $due->id}}</td>
-                        <td>{{ $due->student_id}}</td>
+                        <td>{{ $due->student->name}}</td>
                         <td>{{ $due->amount}}</td>
                         <td>{{ $due->due_date}}</td>
-                        <td>{{ $due->status}}</td>
+                        <td><span class="badge bg-danger text-white rounded-pill">{{ $due->status}}</span></td>
+                        <td>
+                            <a href="{{route("admin.make.cashpayment",['std_id'=>$due->student_id,'id'=>$due->id]) }}" class="btn btn-success">Paid</a>
+                        </td>
                     </tr>
                 @endforeach
             </table>
