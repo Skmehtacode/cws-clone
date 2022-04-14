@@ -12,8 +12,18 @@ class AdminController extends Controller
     public function dashboard(){
         $this->generate_payment();
         $data['countStudent'] = Student::all()->count();
-        $data['due_payment'] = Payment::all();
+        $data['due_payment'] = Payment::where("status","due")->get();
         return view("admin/dashboard",$data);
+    }
+
+    public function managePayment(Request $req){
+        if($req->segment(4)=="paid"){
+            $data["payment"] = Payment::where("status","paid")->get();
+        }
+        else{  
+            $data["payment"] = Payment::where("status","due")->get();
+        }
+        return view("admin/managePayment",$data);
     }
 
     // Payment

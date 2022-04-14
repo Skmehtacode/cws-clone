@@ -31,7 +31,7 @@
                     <a href="{{route('admin.dashboard')}}" class="list-group-item list-group-item-action">Dashboard</a>
                     <a href="{{route('admin.manage.student.active')}}" class="list-group-item list-group-item-action">Manage Student</a>
                     <a href="{{route('admin.manage.student.new')}}" class="list-group-item list-group-item-action">New Adminssion</a>
-                    <a href="" class="list-group-item list-group-item-action">Manage Payment</a>
+                    <a href="{{route('admin.manage.payment.due')}}" class="list-group-item list-group-item-action">Manage Payment</a>
                     <a href="" class="list-group-item list-group-item-action">Manage Courses</a>
                     <a href="" class="list-group-item list-group-item-action">Manage Placement</a>
                 </div>

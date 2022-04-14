@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Student;
+use App\Models\{Student,Payment};
 
 use Illuminate\Http\Request;
 
@@ -42,7 +42,15 @@ class HomeController extends Controller
         return view("homepages.contact");
     }
 
-    public function onlinePayment(){
-        return view("homepages.onlinePayment");
+    public function onlinePayment(Request $req){
+        $data["payment"] = [];
+        if($req->method() == "POST"){
+            $contact = $req->contact;
+            $std = Student::where("contact",$contact)->first();
+            if($std){
+                $data['payment'] = Payment::where("student_id",$std->id)->get();
+            }
+        }
+        return view("homepages.onlinePayment",$data);
     }
 }

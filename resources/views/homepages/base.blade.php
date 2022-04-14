@@ -17,7 +17,7 @@
                 <li class="nav-item"><a href="{{ route("homepage")}}" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="" class="nav-link">Courses</a></li>
-                <li class="nav-item"><a href="" class="nav-link">Onlline Payment</a></li>
+                <li class="nav-item"><a href="{{route("online-payment")}}" class="nav-link">Onlline Payment</a></li>
                 <li class="nav-item"><a href="{{ route("apply")}}" class="btn btn-warning">Apply for join us</a></li>
             </ul>
         </div>
