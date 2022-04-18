@@ -85,7 +85,7 @@ class AdminController extends Controller
         }
     }
 
-    public function makeCashPayment( $std_id,$id){
+    static public function makeCashPayment( $std_id,$id){
         $std = Student::find($std_id);
 
         if($std){
@@ -113,6 +113,8 @@ class AdminController extends Controller
 
 
     }
+
+   
 
 
 }

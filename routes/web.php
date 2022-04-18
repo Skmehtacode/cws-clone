@@ -12,6 +12,8 @@ Route::get("/contact",[HomeController::class,"contact"])->name("contact");
 Route::match(["post","get"],"/apply",[HomeController::class,"apply"])->name("apply");
 Route::get("/courses",[HomeController::class,"courses"])->name("courses");
 Route::match(["post","get"],"/online-payment",[HomeController::class,"onlinePayment"])->name("online-payment");
+Route::post("make-payment/",[HomeController::class,"makePayment"])->name("makePayment");
+Route::post("online-payment/call-back/",[HomeController::class,"paymentCallback"])->name("callback");
 
 Route::prefix("admin")->middleware(['auth'])->group(function(){
     Route::get("/",[AdminController::class,"dashboard"])->name('admin.dashboard');

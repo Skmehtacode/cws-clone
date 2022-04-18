@@ -37,7 +37,12 @@
                                 @if ($pay->status == "paid")
                                     <a href="" class="btn btn-success disabled">Paid</a>
                                 @else
-                                    <a href="" class="btn btn-success">Pay</a>
+                                    <form action="{{ route('makePayment')}} " method="post" class="btn btn-success">x
+                                        @csrf 
+                                        <input type="hidden" value="{{$pay->id}}" name="pay_id">
+                                        <input type="hidden" value="{{$pay->student->contact}}" name="contact">
+                                        <input type="submit" class="btn btn-success" value="Pay">
+                                    </form>
                                     
                                 @endif
                                     
